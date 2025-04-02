@@ -1,6 +1,14 @@
-# ClientApp
+# SEO Analyzer
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.1.5.
+A modern web application for analyzing and optimizing your website's SEO meta tags. Built with Angular 17 and ASP.NET Core 9.
+
+## Features
+
+- **SEO Meta Tag Analysis**: Analyze title, description, keywords, and robots directives
+- **Social Media Preview**: Preview how your content appears on Facebook and Twitter
+- **SEO Score**: Get an overall SEO score with detailed breakdown
+- **Recommendations**: Receive actionable recommendations to improve your SEO
+- **Real-time Analysis**: Instant feedback on your website's SEO status
 
 ## Development server
 
@@ -11,6 +19,32 @@ ng serve
 ```
 
 Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+
+## Backend API
+
+The application requires the backend API to be running. The API is built with ASP.NET Core 9 and follows clean architecture principles.
+
+To run the backend API:
+
+```bash
+cd Server
+dotnet run --project SEOAnalyzer.API
+```
+
+The API will be available at `https://localhost:7001`.
+
+## Architecture
+
+### Frontend
+- **Angular 17**: Modern component-based framework
+- **TailwindCSS**: Utility-first CSS framework for styling
+- **Standalone Components**: Angular's latest component architecture
+- **Clean Architecture**: Separation of concerns with core, features, and shared modules
+
+### Backend
+- **ASP.NET Core 9**: High-performance web framework
+- **Clean Architecture**: Domain-driven design with vertical slicing
+- **RESTful API**: Standardized API endpoints for SEO analysis
 
 ## Code scaffolding
 

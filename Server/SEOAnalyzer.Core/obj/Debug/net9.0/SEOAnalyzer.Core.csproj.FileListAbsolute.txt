@@ -1,0 +1,11 @@
+D:\Source\Learning\VibeCoding\SEOAnalyser\Server\SEOAnalyzer.Core\bin\Debug\net9.0\SEOAnalyzer.Core.deps.json
+D:\Source\Learning\VibeCoding\SEOAnalyser\Server\SEOAnalyzer.Core\bin\Debug\net9.0\SEOAnalyzer.Core.dll
+D:\Source\Learning\VibeCoding\SEOAnalyser\Server\SEOAnalyzer.Core\bin\Debug\net9.0\SEOAnalyzer.Core.pdb
+D:\Source\Learning\VibeCoding\SEOAnalyser\Server\SEOAnalyzer.Core\obj\Debug\net9.0\SEOAnalyzer.Core.GeneratedMSBuildEditorConfig.editorconfig
+D:\Source\Learning\VibeCoding\SEOAnalyser\Server\SEOAnalyzer.Core\obj\Debug\net9.0\SEOAnalyzer.Core.AssemblyInfoInputs.cache
+D:\Source\Learning\VibeCoding\SEOAnalyser\Server\SEOAnalyzer.Core\obj\Debug\net9.0\SEOAnalyzer.Core.AssemblyInfo.cs
+D:\Source\Learning\VibeCoding\SEOAnalyser\Server\SEOAnalyzer.Core\obj\Debug\net9.0\SEOAnalyzer.Core.csproj.CoreCompileInputs.cache
+D:\Source\Learning\VibeCoding\SEOAnalyser\Server\SEOAnalyzer.Core\obj\Debug\net9.0\SEOAnalyzer.Core.dll
+D:\Source\Learning\VibeCoding\SEOAnalyser\Server\SEOAnalyzer.Core\obj\Debug\net9.0\refint\SEOAnalyzer.Core.dll
+D:\Source\Learning\VibeCoding\SEOAnalyser\Server\SEOAnalyzer.Core\obj\Debug\net9.0\SEOAnalyzer.Core.pdb
+D:\Source\Learning\VibeCoding\SEOAnalyser\Server\SEOAnalyzer.Core\obj\Debug\net9.0\ref\SEOAnalyzer.Core.dll

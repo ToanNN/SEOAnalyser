@@ -1,0 +1,17 @@
+D:\Source\Learning\VibeCoding\SEOAnalyser\Server\SEOAnalyzer.Infrastructure\bin\Debug\net9.0\SEOAnalyzer.Infrastructure.deps.json
+D:\Source\Learning\VibeCoding\SEOAnalyser\Server\SEOAnalyzer.Infrastructure\bin\Debug\net9.0\SEOAnalyzer.Infrastructure.dll
+D:\Source\Learning\VibeCoding\SEOAnalyser\Server\SEOAnalyzer.Infrastructure\bin\Debug\net9.0\SEOAnalyzer.Infrastructure.pdb
+D:\Source\Learning\VibeCoding\SEOAnalyser\Server\SEOAnalyzer.Infrastructure\bin\Debug\net9.0\SEOAnalyzer.Application.dll
+D:\Source\Learning\VibeCoding\SEOAnalyser\Server\SEOAnalyzer.Infrastructure\bin\Debug\net9.0\SEOAnalyzer.Core.dll
+D:\Source\Learning\VibeCoding\SEOAnalyser\Server\SEOAnalyzer.Infrastructure\bin\Debug\net9.0\SEOAnalyzer.Core.pdb
+D:\Source\Learning\VibeCoding\SEOAnalyser\Server\SEOAnalyzer.Infrastructure\bin\Debug\net9.0\SEOAnalyzer.Application.pdb
+D:\Source\Learning\VibeCoding\SEOAnalyser\Server\SEOAnalyzer.Infrastructure\obj\Debug\net9.0\SEOAnalyzer.Infrastructure.csproj.AssemblyReference.cache
+D:\Source\Learning\VibeCoding\SEOAnalyser\Server\SEOAnalyzer.Infrastructure\obj\Debug\net9.0\SEOAnalyzer.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+D:\Source\Learning\VibeCoding\SEOAnalyser\Server\SEOAnalyzer.Infrastructure\obj\Debug\net9.0\SEOAnalyzer.Infrastructure.AssemblyInfoInputs.cache
+D:\Source\Learning\VibeCoding\SEOAnalyser\Server\SEOAnalyzer.Infrastructure\obj\Debug\net9.0\SEOAnalyzer.Infrastructure.AssemblyInfo.cs
+D:\Source\Learning\VibeCoding\SEOAnalyser\Server\SEOAnalyzer.Infrastructure\obj\Debug\net9.0\SEOAnalyzer.Infrastructure.csproj.CoreCompileInputs.cache
+D:\Source\Learning\VibeCoding\SEOAnalyser\Server\SEOAnalyzer.Infrastructure\obj\Debug\net9.0\SEOAnaly.FC0B388C.Up2Date
+D:\Source\Learning\VibeCoding\SEOAnalyser\Server\SEOAnalyzer.Infrastructure\obj\Debug\net9.0\SEOAnalyzer.Infrastructure.dll
+D:\Source\Learning\VibeCoding\SEOAnalyser\Server\SEOAnalyzer.Infrastructure\obj\Debug\net9.0\refint\SEOAnalyzer.Infrastructure.dll
+D:\Source\Learning\VibeCoding\SEOAnalyser\Server\SEOAnalyzer.Infrastructure\obj\Debug\net9.0\SEOAnalyzer.Infrastructure.pdb
+D:\Source\Learning\VibeCoding\SEOAnalyser\Server\SEOAnalyzer.Infrastructure\obj\Debug\net9.0\ref\SEOAnalyzer.Infrastructure.dll

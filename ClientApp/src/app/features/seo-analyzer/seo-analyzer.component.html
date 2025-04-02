@@ -1,9 +1,9 @@
 <div class="min-h-screen bg-gradient-to-b from-gray-50 to-gray-100 py-12 px-4 sm:px-6 lg:px-8">
-  <div class="max-w-5xl mx-auto">
+  <div class="max-w-7xl mx-auto">
     <!-- Header -->
     <div class="text-center mb-12">
       <h1 class="text-5xl font-extrabold text-gray-900 mb-4">SEO Meta Tag Analyzer</h1>
-      <p class="text-xl text-gray-600">Analyze and visualize SEO tags to improve your website's optimization</p>
+      <p class="text-xl text-gray-600">Get instant insights into your website's SEO performance</p>
     </div>
 
     <!-- URL Input Form -->
@@ -44,86 +44,79 @@
 
     <!-- Results Section -->
     <div *ngIf="seoData" class="space-y-8">
-      <!-- SEO Score Overview -->
+      <!-- Quick Summary Dashboard -->
       <div class="bg-white shadow-lg rounded-xl p-8">
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <h2 class="text-2xl font-bold text-gray-900 mb-6">SEO Overview</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           <!-- Overall Score -->
-          <div class="col-span-1 flex flex-col items-center justify-center">
-            <div class="relative">
-              <svg class="w-32 h-32 transform -rotate-90">
-                <circle
-                  cx="64"
-                  cy="64"
-                  r="56"
-                  stroke-width="8"
-                  stroke="#f3f4f6"
-                  fill="none"
-                />
-                <circle
-                  cx="64"
-                  cy="64"
-                  r="56"
-                  stroke-width="8"
-                  [attr.stroke-dasharray]="'352'"
-                  [attr.stroke-dashoffset]="352 - (352 * (seoScore / 100))"
-                  stroke-linecap="round"
-                  stroke="#10B981"
-                  fill="none"
-                  class="transition-all duration-1000 ease-out"
-                />
-              </svg>
-              <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center">
-                <span class="text-4xl font-bold text-gray-900">{{seoScore}}</span>
-                <span class="text-lg text-gray-500">/100</span>
+          <div class="bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl p-6 relative overflow-hidden">
+            <div class="relative z-10">
+              <h3 class="text-lg font-semibold text-blue-900 mb-2">Overall Score</h3>
+              <div class="flex items-baseline">
+                <span class="text-4xl font-bold text-blue-700">{{seoScore}}</span>
+                <span class="text-blue-600 ml-1">/100</span>
               </div>
+              <p class="text-blue-700 mt-2 text-sm">{{getSeoScoreText(seoScore)}}</p>
             </div>
-            <h3 class="mt-4 text-xl font-semibold text-gray-900">Overall SEO Score</h3>
-            <p class="text-sm text-gray-500">{{getSeoScoreText(seoScore)}}</p>
+            <div class="absolute right-0 top-0 h-full w-1/2 flex items-center justify-center opacity-10">
+              <svg class="w-24 h-24" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+              </svg>
+            </div>
           </div>
 
-          <!-- Status Cards -->
-          <div class="col-span-3 grid grid-cols-3 gap-4">
-            <!-- Passed Checks -->
-            <div class="bg-green-50 rounded-lg p-6">
-              <div class="flex items-center">
-                <div class="flex-shrink-0">
-                  <svg class="h-8 w-8 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+          <!-- Meta Tags Summary -->
+          <div class="bg-gradient-to-br from-green-50 to-green-100 rounded-xl p-6 relative overflow-hidden">
+            <div class="relative z-10">
+              <h3 class="text-lg font-semibold text-green-900 mb-2">Meta Tags</h3>
+              <div class="space-y-2">
+                <div class="flex items-center">
+                  <svg class="w-5 h-5 text-green-600 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
                   </svg>
+                  <span class="text-green-800">{{passedChecks}} Passed</span>
                 </div>
-                <div class="ml-4">
-                  <h4 class="text-lg font-semibold text-green-800">Passed Checks</h4>
-                  <p class="text-3xl font-bold text-green-600">{{passedChecks}}</p>
+                <div class="flex items-center">
+                  <svg class="w-5 h-5 text-yellow-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"></path>
+                  </svg>
+                  <span class="text-yellow-800">{{warnings}} Warnings</span>
                 </div>
               </div>
             </div>
+          </div>
 
-            <!-- Warnings -->
-            <div class="bg-yellow-50 rounded-lg p-6">
-              <div class="flex items-center">
-                <div class="flex-shrink-0">
-                  <svg class="h-8 w-8 text-yellow-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>
-                  </svg>
+          <!-- Content Summary -->
+          <div class="bg-gradient-to-br from-purple-50 to-purple-100 rounded-xl p-6 relative overflow-hidden">
+            <div class="relative z-10">
+              <h3 class="text-lg font-semibold text-purple-900 mb-2">Content</h3>
+              <div class="space-y-2">
+                <div class="flex items-center">
+                  <span class="text-purple-800">Title: {{getTitleLength()}} chars</span>
                 </div>
-                <div class="ml-4">
-                  <h4 class="text-lg font-semibold text-yellow-800">Warnings</h4>
-                  <p class="text-3xl font-bold text-yellow-600">{{warnings}}</p>
+                <div class="flex items-center">
+                  <span class="text-purple-800">Description: {{getDescriptionLength()}} chars</span>
                 </div>
               </div>
             </div>
+          </div>
 
-            <!-- Failed Checks -->
-            <div class="bg-red-50 rounded-lg p-6">
-              <div class="flex items-center">
-                <div class="flex-shrink-0">
-                  <svg class="h-8 w-8 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+          <!-- Social Media Summary -->
+          <div class="bg-gradient-to-br from-pink-50 to-pink-100 rounded-xl p-6 relative overflow-hidden">
+            <div class="relative z-10">
+              <h3 class="text-lg font-semibold text-pink-900 mb-2">Social Media</h3>
+              <div class="space-y-2">
+                <div class="flex items-center">
+                  <svg class="w-5 h-5 text-[#1877F2] mr-2" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
                   </svg>
+                  <span class="text-pink-800">{{seoData.ogTitle ? 'Present' : 'Missing'}}</span>
                 </div>
-                <div class="ml-4">
-                  <h4 class="text-lg font-semibold text-red-800">Failed Checks</h4>
-                  <p class="text-3xl font-bold text-red-600">{{failedChecks}}</p>
+                <div class="flex items-center">
+                  <svg class="w-5 h-5 text-[#1DA1F2] mr-2" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+                  </svg>
+                  <span class="text-pink-800">{{seoData.twitterTitle ? 'Present' : 'Missing'}}</span>
                 </div>
               </div>
             </div>
@@ -131,27 +124,33 @@
         </div>
       </div>
 
-      <!-- Meta Tags Overview -->
-      <div class="bg-white shadow-lg rounded-xl p-8">
-        <h2 class="text-2xl font-bold text-gray-900 mb-6">Meta Tags Analysis</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <!-- Title Analysis -->
-          <div class="space-y-4">
+      <!-- Detailed Analysis Sections -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <!-- Meta Tags Analysis -->
+        <div class="bg-white shadow-lg rounded-xl p-8">
+          <h2 class="text-2xl font-bold text-gray-900 mb-6">Meta Tags Analysis</h2>
+          <div class="space-y-6">
+            <!-- Title Analysis -->
             <div class="p-6 bg-gray-50 rounded-xl border-l-4" [ngClass]="{
               'border-green-500': getTitleStatus() === 'success',
               'border-yellow-500': getTitleStatus() === 'warning',
               'border-red-500': getTitleStatus() === 'error'
             }">
-              <h3 class="font-semibold text-gray-900 mb-2">Title Tag</h3>
-              <p class="text-gray-700 mb-2">{{seoData.title || 'Not found'}}</p>
-              <div class="flex items-center gap-2 text-sm" [ngClass]="{
-                'text-green-600': getTitleStatus() === 'success',
-                'text-yellow-600': getTitleStatus() === 'warning',
-                'text-red-600': getTitleStatus() === 'error'
-              }">
+              <div class="flex items-center justify-between mb-4">
+                <h3 class="font-semibold text-gray-900">Title Tag</h3>
+                <span class="px-3 py-1 rounded-full text-sm" [ngClass]="{
+                  'bg-green-100 text-green-800': getTitleStatus() === 'success',
+                  'bg-yellow-100 text-yellow-800': getTitleStatus() === 'warning',
+                  'bg-red-100 text-red-800': getTitleStatus() === 'error'
+                }">
+                  {{getTitleStatus() === 'success' ? 'Optimal' : getTitleStatus() === 'warning' ? 'Could improve' : 'Needs attention'}}
+                </span>
+              </div>
+              <p class="text-gray-700 mb-3">{{seoData.title || 'Not found'}}</p>
+              <div class="flex items-center gap-4 text-sm text-gray-600">
                 <span>{{getTitleLength()}} characters</span>
                 <span class="text-gray-400">|</span>
-                <span>{{getTitleStatus() === 'success' ? 'Optimal length' : getTitleStatus() === 'warning' ? 'Could be improved' : 'Needs attention'}}</span>
+                <span>Recommended: 50-60 chars</span>
               </div>
             </div>
 
@@ -161,107 +160,254 @@
               'border-yellow-500': getDescriptionStatus() === 'warning',
               'border-red-500': getDescriptionStatus() === 'error'
             }">
-              <h3 class="font-semibold text-gray-900 mb-2">Meta Description</h3>
-              <p class="text-gray-700 mb-2">{{seoData.description || 'Not found'}}</p>
-              <div class="flex items-center gap-2 text-sm" [ngClass]="{
-                'text-green-600': getDescriptionStatus() === 'success',
-                'text-yellow-600': getDescriptionStatus() === 'warning',
-                'text-red-600': getDescriptionStatus() === 'error'
-              }">
+              <div class="flex items-center justify-between mb-4">
+                <h3 class="font-semibold text-gray-900">Meta Description</h3>
+                <span class="px-3 py-1 rounded-full text-sm" [ngClass]="{
+                  'bg-green-100 text-green-800': getDescriptionStatus() === 'success',
+                  'bg-yellow-100 text-yellow-800': getDescriptionStatus() === 'warning',
+                  'bg-red-100 text-red-800': getDescriptionStatus() === 'error'
+                }">
+                  {{getDescriptionStatus() === 'success' ? 'Optimal' : getDescriptionStatus() === 'warning' ? 'Could improve' : 'Needs attention'}}
+                </span>
+              </div>
+              <p class="text-gray-700 mb-3">{{seoData.description || 'Not found'}}</p>
+              <div class="flex items-center gap-4 text-sm text-gray-600">
                 <span>{{getDescriptionLength()}} characters</span>
                 <span class="text-gray-400">|</span>
-                <span>{{getDescriptionStatus() === 'success' ? 'Optimal length' : getDescriptionStatus() === 'warning' ? 'Could be improved' : 'Needs attention'}}</span>
+                <span>Recommended: 150-160 chars</span>
               </div>
             </div>
-          </div>
 
-          <!-- Keywords and Robots -->
-          <div class="space-y-4">
+            <!-- Keywords Analysis -->
             <div class="p-6 bg-gray-50 rounded-xl border-l-4" [ngClass]="{
               'border-green-500': getKeywordsStatus() === 'success',
               'border-yellow-500': getKeywordsStatus() === 'warning',
               'border-red-500': getKeywordsStatus() === 'error'
             }">
-              <h3 class="font-semibold text-gray-900 mb-2">Keywords</h3>
+              <div class="flex items-center justify-between mb-4">
+                <h3 class="font-semibold text-gray-900">Keywords</h3>
+                <span class="px-3 py-1 rounded-full text-sm" [ngClass]="{
+                  'bg-green-100 text-green-800': getKeywordsStatus() === 'success',
+                  'bg-yellow-100 text-yellow-800': getKeywordsStatus() === 'warning',
+                  'bg-red-100 text-red-800': getKeywordsStatus() === 'error'
+                }">
+                  {{getKeywordsStatus() === 'success' ? 'Present' : 'Missing'}}
+                </span>
+              </div>
               <p class="text-gray-700">{{seoData.keywords || 'Not found'}}</p>
             </div>
+          </div>
+        </div>
 
-            <div class="p-6 bg-gray-50 rounded-xl border-l-4" [ngClass]="{
-              'border-green-500': getRobotsStatus() === 'success',
-              'border-red-500': getRobotsStatus() === 'error'
-            }">
-              <h3 class="font-semibold text-gray-900 mb-2">Robots Directives</h3>
-              <p class="text-gray-700">{{seoData.robots || 'Not found'}}</p>
+        <!-- Educational SEO Elements Section -->
+        <div class="bg-white shadow-lg rounded-xl p-8">
+          <h2 class="text-2xl font-bold text-gray-900 mb-6">SEO Elements Guide</h2>
+          <div class="space-y-8">
+            <!-- Basic Meta Tags -->
+            <div>
+              <h3 class="text-lg font-semibold text-blue-900 mb-4 flex items-center">
+                <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M9 4.804A7.968 7.968 0 005.5 4c-1.255 0-2.443.29-3.5.804v10A7.969 7.969 0 015.5 14c1.669 0 3.218.51 4.5 1.385A7.962 7.962 0 0114.5 14c1.255 0 2.443.29 3.5.804v-10A7.968 7.968 0 0014.5 4c-1.255 0-2.443.29-3.5.804V12a1 1 0 11-2 0V4.804z"/>
+                </svg>
+                Basic Meta Tags
+              </h3>
+              <ul class="space-y-3 text-gray-700">
+                <li class="flex items-start gap-2">
+                  <svg class="w-5 h-5 text-blue-500 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                  </svg>
+                  <div>
+                    <span class="font-semibold">Title Tag ({{seoData.title ? '✓' : '✗'}})</span>
+                    <p class="text-sm text-gray-600">The main title of your page, shown in search results and browser tabs. Optimal length: 50-60 characters.</p>
+                  </div>
+                </li>
+                <li class="flex items-start gap-2">
+                  <svg class="w-5 h-5 text-blue-500 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                  </svg>
+                  <div>
+                    <span class="font-semibold">Meta Description ({{seoData.description ? '✓' : '✗'}})</span>
+                    <p class="text-sm text-gray-600">A summary of your page content, displayed in search results. Optimal length: 150-160 characters.</p>
+                  </div>
+                </li>
+                <li class="flex items-start gap-2">
+                  <svg class="w-5 h-5 text-blue-500 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                  </svg>
+                  <div>
+                    <span class="font-semibold">Meta Keywords ({{seoData.keywords ? '✓' : '✗'}})</span>
+                    <p class="text-sm text-gray-600">Keywords relevant to your page content. Less important for modern SEO but still used by some search engines.</p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Social Media Tags -->
+            <div>
+              <h3 class="text-lg font-semibold text-pink-900 mb-4 flex items-center">
+                <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z"/>
+                </svg>
+                Social Media Tags
+              </h3>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Facebook/Open Graph -->
+                <div class="bg-blue-50 rounded-lg p-4">
+                  <h4 class="font-semibold text-[#1877F2] mb-3">Facebook/Open Graph</h4>
+                  <ul class="space-y-2 text-sm">
+                    <li class="flex items-center gap-2">
+                      <span class="w-4 h-4 flex items-center justify-center">{{seoData.ogTitle ? '✓' : '✗'}}</span>
+                      <span>og:title</span>
+                    </li>
+                    <li class="flex items-center gap-2">
+                      <span class="w-4 h-4 flex items-center justify-center">{{seoData.ogDescription ? '✓' : '✗'}}</span>
+                      <span>og:description</span>
+                    </li>
+                    <li class="flex items-center gap-2">
+                      <span class="w-4 h-4 flex items-center justify-center">{{seoData.ogImage ? '✓' : '✗'}}</span>
+                      <span>og:image</span>
+                    </li>
+                  </ul>
+                </div>
+
+                <!-- Twitter Card -->
+                <div class="bg-blue-50 rounded-lg p-4">
+                  <h4 class="font-semibold text-[#1DA1F2] mb-3">Twitter Card</h4>
+                  <ul class="space-y-2 text-sm">
+                    <li class="flex items-center gap-2">
+                      <span class="w-4 h-4 flex items-center justify-center">{{seoData.twitterTitle ? '✓' : '✗'}}</span>
+                      <span>twitter:title</span>
+                    </li>
+                    <li class="flex items-center gap-2">
+                      <span class="w-4 h-4 flex items-center justify-center">{{seoData.twitterDescription ? '✓' : '✗'}}</span>
+                      <span>twitter:description</span>
+                    </li>
+                    <li class="flex items-center gap-2">
+                      <span class="w-4 h-4 flex items-center justify-center">{{seoData.twitterImage ? '✓' : '✗'}}</span>
+                      <span>twitter:image</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <!-- Technical SEO Elements -->
+            <div>
+              <h3 class="text-lg font-semibold text-purple-900 mb-4 flex items-center">
+                <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z" clip-rule="evenodd"/>
+                </svg>
+                Technical Elements
+              </h3>
+              <ul class="space-y-3 text-gray-700">
+                <li class="flex items-start gap-2">
+                  <svg class="w-5 h-5 text-purple-500 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                  </svg>
+                  <div>
+                    <span class="font-semibold">Robots Directives ({{seoData.robots ? '✓' : '✗'}})</span>
+                    <p class="text-sm text-gray-600">Instructions for search engine crawlers about how to process your page.</p>
+                  </div>
+                </li>
+                <li class="flex items-start gap-2">
+                  <svg class="w-5 h-5 text-purple-500 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                  </svg>
+                  <div>
+                    <span class="font-semibold">Character Encoding</span>
+                    <p class="text-sm text-gray-600">Ensures proper text rendering across different devices and browsers.</p>
+                  </div>
+                </li>
+                <li class="flex items-start gap-2">
+                  <svg class="w-5 h-5 text-purple-500 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                  </svg>
+                  <div>
+                    <span class="font-semibold">Viewport Settings</span>
+                    <p class="text-sm text-gray-600">Controls how your page is displayed on mobile devices.</p>
+                  </div>
+                </li>
+              </ul>
             </div>
           </div>
         </div>
-      </div>
 
-      <!-- Recommendations -->
-      <div class="bg-white shadow-lg rounded-xl p-8">
-        <h2 class="text-2xl font-bold text-gray-900 mb-6">Recommendations</h2>
-        <div class="space-y-6">
-          <!-- Warning Recommendations -->
-          <div *ngIf="getWarningRecommendations().length > 0" class="space-y-4">
-            <h3 class="text-lg font-semibold text-yellow-800">Warnings to Address</h3>
-            <ul class="space-y-3">
-              <li *ngFor="let rec of getWarningRecommendations()" class="flex items-start gap-3 text-yellow-700">
-                <svg class="h-6 w-6 flex-shrink-0 text-yellow-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <!-- Social Media Preview -->
+        <div class="bg-white shadow-lg rounded-xl p-8">
+          <h2 class="text-2xl font-bold text-gray-900 mb-6">Social Media Preview</h2>
+          <div class="space-y-6">
+            <!-- Facebook Preview -->
+            <div class="border border-gray-200 rounded-xl overflow-hidden">
+              <div class="bg-[#1877F2] text-white p-4">
+                <h3 class="font-medium">Facebook</h3>
+              </div>
+              <div class="p-4">
+                <div class="aspect-video bg-gray-100 rounded-lg mb-4 flex items-center justify-center">
+                  <img *ngIf="seoData.ogImage" [src]="seoData.ogImage" alt="OG Image" class="w-full h-full object-cover">
+                  <span *ngIf="!seoData.ogImage" class="text-gray-400">No og:image available</span>
+                </div>
+                <h4 class="font-bold text-[#1877F2] mb-2">{{seoData.ogTitle || seoData.title || 'No title available'}}</h4>
+                <p class="text-gray-600 text-sm mb-2">{{seoData.ogDescription || seoData.description || 'No description available'}}</p>
+                <p class="text-gray-400 text-sm">{{url}}</p>
+              </div>
+            </div>
+
+            <!-- Twitter Preview -->
+            <div class="border border-gray-200 rounded-xl overflow-hidden">
+              <div class="bg-[#1DA1F2] text-white p-4">
+                <h3 class="font-medium">Twitter</h3>
+              </div>
+              <div class="p-4">
+                <div class="aspect-video bg-gray-100 rounded-lg mb-4 flex items-center justify-center">
+                  <img *ngIf="seoData.twitterImage" [src]="seoData.twitterImage" alt="Twitter Image" class="w-full h-full object-cover">
+                  <span *ngIf="!seoData.twitterImage" class="text-gray-400">No twitter:image available</span>
+                </div>
+                <h4 class="font-bold text-[#1DA1F2] mb-2">{{seoData.twitterTitle || seoData.title || 'No title available'}}</h4>
+                <p class="text-gray-600 text-sm mb-2">{{seoData.twitterDescription || seoData.description || 'No description available'}}</p>
+                <p class="text-gray-400 text-sm">{{url}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Recommendations Section -->
+        <div class="bg-white shadow-lg rounded-xl p-8">
+          <h2 class="text-2xl font-bold text-gray-900 mb-6">Recommendations</h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <!-- Warning Recommendations -->
+            <div *ngIf="getWarningRecommendations().length > 0" class="space-y-4">
+              <h3 class="text-lg font-semibold text-yellow-800 flex items-center">
+                <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>
                 </svg>
-                <span>{{rec}}</span>
-              </li>
-            </ul>
-          </div>
+                Warnings to Address
+              </h3>
+              <ul class="space-y-3">
+                <li *ngFor="let rec of getWarningRecommendations()" class="flex items-start gap-3 p-4 bg-yellow-50 rounded-lg text-yellow-700">
+                  <svg class="w-6 h-6 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>
+                  </svg>
+                  <span>{{rec}}</span>
+                </li>
+              </ul>
+            </div>
 
-          <!-- Failed Recommendations -->
-          <div *ngIf="getFailedRecommendations().length > 0" class="space-y-4">
-            <h3 class="text-lg font-semibold text-red-800">Critical Issues</h3>
-            <ul class="space-y-3">
-              <li *ngFor="let rec of getFailedRecommendations()" class="flex items-start gap-3 text-red-700">
-                <svg class="h-6 w-6 flex-shrink-0 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <!-- Critical Issues -->
+            <div *ngIf="getFailedRecommendations().length > 0" class="space-y-4">
+              <h3 class="text-lg font-semibold text-red-800 flex items-center">
+                <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
                 </svg>
-                <span>{{rec}}</span>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      <!-- Social Media Preview -->
-      <div class="bg-white shadow-lg rounded-xl p-8">
-        <h2 class="text-2xl font-bold text-gray-900 mb-6">Social Media Preview</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <!-- Facebook -->
-          <div class="rounded-xl overflow-hidden border border-gray-200">
-            <div class="bg-[#1877F2] text-white p-4">
-              <h3 class="font-medium">Facebook Preview</h3>
-            </div>
-            <div class="p-4 space-y-4">
-              <div class="aspect-video bg-gray-100 rounded-lg flex items-center justify-center">
-                <img *ngIf="seoData.ogImage" [src]="seoData.ogImage" alt="OG Image" class="w-full h-full object-cover rounded-lg">
-                <span *ngIf="!seoData.ogImage" class="text-gray-400">No og:image available</span>
-              </div>
-              <h4 class="font-bold text-[#1877F2]">{{seoData.ogTitle || seoData.title || 'No title available'}}</h4>
-              <p class="text-gray-600 text-sm">{{seoData.ogDescription || seoData.description || 'No description available'}}</p>
-              <p class="text-gray-400 text-sm">{{url}}</p>
-            </div>
-          </div>
-
-          <!-- Twitter -->
-          <div class="rounded-xl overflow-hidden border border-gray-200">
-            <div class="bg-[#1DA1F2] text-white p-4">
-              <h3 class="font-medium">Twitter Preview</h3>
-            </div>
-            <div class="p-4 space-y-4">
-              <div class="aspect-video bg-gray-100 rounded-lg flex items-center justify-center">
-                <img *ngIf="seoData.twitterImage" [src]="seoData.twitterImage" alt="Twitter Image" class="w-full h-full object-cover rounded-lg">
-                <span *ngIf="!seoData.twitterImage" class="text-gray-400">No twitter:image available</span>
-              </div>
-              <h4 class="font-bold text-[#1DA1F2]">{{seoData.twitterTitle || seoData.title || 'No title available'}}</h4>
-              <p class="text-gray-600 text-sm">{{seoData.twitterDescription || seoData.description || 'No description available'}}</p>
-              <p class="text-gray-400 text-sm">{{url}}</p>
+                Critical Issues
+              </h3>
+              <ul class="space-y-3">
+                <li *ngFor="let rec of getFailedRecommendations()" class="flex items-start gap-3 p-4 bg-red-50 rounded-lg text-red-700">
+                  <svg class="w-6 h-6 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                  </svg>
+                  <span>{{rec}}</span>
+                </li>
+              </ul>
             </div>
           </div>
         </div>
